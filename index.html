@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIRus.net | Premium Tech Cafe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <header class="navbar glass">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <span class="brand-mark">VIRus.net</span>
+        <small data-i18n="brand.subtitle">كافيه تقني فاخر</small>
+      </a>
+
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+
+      <nav id="mainNav" class="main-nav" aria-label="Primary">
+        <a class="nav-link" href="#home" data-i18n="nav.home">الرئيسية</a>
+        <a class="nav-link" href="#menu" data-i18n="nav.menu">المنيو</a>
+        <a class="nav-link" href="#specs" data-i18n="nav.specs">الأجهزة</a>
+        <a class="nav-link" href="#branches" data-i18n="nav.branches">الفروع</a>
+        <a class="nav-link" href="#contact" data-i18n="nav.contact">التواصل</a>
+      </nav>
+
+      <div class="lang-switch" aria-label="Language switch">
+        <button class="lang-btn" data-lang="ar" type="button">AR</button>
+        <span>|</span>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="section hero">
+      <div class="container hero-grid">
+        <article class="hero-copy glass">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Modern Lounge Experience</p>
+          <h1 data-i18n="hero.title">VIRus.net - كافيه ألعاب بطابع راقٍ</h1>
+          <p data-i18n="hero.subtitle">مكان هادئ للألعاب والمشروبات مع تجربة حديثة بدون أي طلب أونلاين.</p>
+          <a href="#menu" class="btn-primary" data-i18n="hero.cta">استعرض المنيو</a>
+        </article>
+
+        <article class="hero-panel glass">
+          <h2 data-i18n="packages.title">باقات الأسعار - PC / PlayStation</h2>
+          <div class="packages-grid">
+            <section class="package-card">
+              <h3 data-i18n="packages.pc">PC</h3>
+              <ul>
+                <li><span data-i18n="packages.pc_1h">20 جنيه / ساعة</span><strong>20 EGP</strong></li>
+              </ul>
+            </section>
+            <section class="package-card">
+              <h3 data-i18n="packages.ps">PlayStation</h3>
+              <ul>
+                <li><span data-i18n="packages.ps4_single">PS4: 30 جنيه / ساعة (فردي)</span><strong>30 EGP</strong></li>
+                <li><span data-i18n="packages.ps4_multi">PS4: 40 جنيه / ساعة (متعدد)</span><strong>40 EGP</strong></li>
+                <li><span data-i18n="packages.ps5_single">PS5: 40 جنيه / ساعة (فردي)</span><strong>40 EGP</strong></li>
+                <li><span data-i18n="packages.ps5_multi">PS5: 50 جنيه / ساعة (متعدد)</span><strong>50 EGP</strong></li>
+              </ul>
+            </section>
+          </div>
+          <section class="package-card offers-card">
+            <h3 data-i18n="offers.title">العروض</h3>
+            <ul>
+              <li><span data-i18n="offers.item1">عرض الفتحة الواحدة: 7 ساعات بـ 100 جنيه</span><strong>100 EGP</strong></li>
+              <li><span data-i18n="offers.item2">عرض 20 ساعة بـ 300 جنيه (صالح طوال الشهر)</span><strong>300 EGP</strong></li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="menu.title">المنيو</h2>
+          <p data-i18n="menu.subtitle">عرض كامل للأصناف مع التفاصيل فقط.</p>
+        </div>
+
+        <div class="menu-toolbar glass">
+          <div class="search-wrap">
+            <input id="menuSearch" type="search" data-i18n-placeholder="menu.searchPlaceholder" placeholder="ابحث بالاسم...">
+          </div>
+          <div id="categoryFilters" class="chips"></div>
+        </div>
+
+        <div id="menuGrid" class="menu-grid"></div>
+      </div>
+    </section>
+
+    <section id="specs" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="specs.title">Specs / الأجهزة</h2>
+          <p data-i18n="specs.subtitle">تفاصيل الأجهزة داخل الفرع</p>
+        </div>
+
+        <div class="specs-grid">
+          <article class="spec-card glass">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h16v10H4zM2 19h20M9 15v4m6-4v4"></path>
+              </svg>
+            </div>
+            <h3 data-i18n="specs.pc_title">PCs</h3>
+            <ul>
+              <li data-i18n="specs.pc_count">26 Gaming PCs</li>
+              <li data-i18n="specs.gpu">GPU: RTX 4060</li>
+              <li data-i18n="specs.cpu">CPU: Intel i5 12th Gen</li>
+              <li data-i18n="specs.ram">RAM: 16-32GB</li>
+            </ul>
+          </article>
+
+          <article class="spec-card glass">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 8h14l2 4-2 4H5l-2-4 2-4zm4 4h.01M15 12h.01"></path>
+              </svg>
+            </div>
+            <h3 data-i18n="specs.ps_title">PlayStation</h3>
+            <ul>
+              <li data-i18n="specs.ps_total">6 total</li>
+              <li data-i18n="specs.ps4">3 PS4</li>
+              <li data-i18n="specs.ps5">3 PS5</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="branches" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="branches.title">الفروع</h2>
+          <p data-i18n="branches.subtitle">اضغط لفتح موقع الفرع مباشرة.</p>
+        </div>
+        <div class="branches-grid">
+          <article class="branch-card glass">
+            <h3>Ard El Hadded</h3>
+            <a href="https://maps.app.goo.gl/UB1dTq9zxk6MSmw16" target="_blank" rel="noopener" data-i18n="branches.open">Open Location</a>
+          </article>
+          <article class="branch-card glass">
+            <h3>Ard El Gam3eya</h3>
+            <a href="https://maps.app.goo.gl/1FJRRXcj232oSGsA6" target="_blank" rel="noopener" data-i18n="branches.open">Open Location</a>
+          </article>
+          <article class="branch-card glass">
+            <h3>Sharea El Wehda</h3>
+            <a href="https://maps.app.goo.gl/6n3SmsKRz9y1ZDuTA" target="_blank" rel="noopener" data-i18n="branches.open">Open Location</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="contact.title">التواصل</h2>
+          <p data-i18n="contact.subtitle">واتساب وفيسبوك فقط</p>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card glass" href="https://wa.me/201281898969" target="_blank" rel="noopener">
+            <span data-i18n="contact.whatsapp1">WhatsApp 1</span>
+            <strong>+20 12 81898969</strong>
+          </a>
+          <a class="contact-card glass" href="https://wa.me/201020353245" target="_blank" rel="noopener">
+            <span data-i18n="contact.whatsapp2">WhatsApp 2</span>
+            <strong>+201020353245</strong>
+          </a>
+          <a class="contact-card glass" href="https://www.facebook.com/share/184kYVaXMD/" target="_blank" rel="noopener">
+            <span data-i18n="contact.facebook">Facebook</span>
+            <strong>VIRus.net</strong>
+          </a>
+        </div>
+        <a href="tool.html" class="admin-link" data-i18n="contact.admin">فتح أداة الإدارة</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer.text">VIRus.net - جميع الأسعار بالجنيه المصري</p>
+    </div>
+  </footer>
+
+  <div id="detailsModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card glass" role="dialog" aria-modal="true">
+      <button id="modalClose" class="modal-close" type="button" aria-label="Close modal">
+        <span>&times;</span>
+      </button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="menu-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
