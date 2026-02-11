@@ -24,7 +24,7 @@ const MENU_ITEMS = [
     name_en: "Tea (Regular)",
     desc_ar: "كوب شاي كلاسيكي بطعم متوازن.",
     desc_en: "Classic tea cup with a balanced flavor.",
-    price: 10,
+    price: 15,
     image: "https://i.ibb.co/cXYFZjxd/08e0fc775e2ea3147fe78e25b47f2fc6.jpg"
   },
   {
@@ -35,7 +35,7 @@ const MENU_ITEMS = [
     name_en: "Green Tea",
     desc_ar: "شاي أخضر خفيف ومنعش.",
     desc_en: "Light and refreshing green tea.",
-    price: 10,
+    price: 15,
     image: "https://i.ibb.co/XZHN4nn3/5e0a169ef2ef17696893a2135d2d6b67.jpg"
   },
   {
@@ -123,7 +123,7 @@ const MENU_ITEMS = [
     name_en: "Boiled Lemon",
     desc_ar: "ليمون مغلي دافئ بطعم منعش.",
     desc_en: "Warm boiled lemon with a refreshing profile.",
-    price: 12,
+    price: 15,
     image: "https://i.ibb.co/JwNhwCBx/Chat-GPT-Image-9-2026-06-10-14.png"
   },
   {
@@ -178,7 +178,7 @@ const MENU_ITEMS = [
     name_en: "Monster",
     desc_ar: "مشروب طاقة مونستر.",
     desc_en: "Monster energy drink.",
-    price: 60,
+    price: 65,
     image: "https://i.ibb.co/hJ3FF4RD/Screenshot-2026-02-08-164750.png"
   },
   {
@@ -222,7 +222,7 @@ const MENU_ITEMS = [
     name_en: "Guava",
     desc_ar: "عصير جوافة فريش.",
     desc_en: "Fresh guava juice.",
-    price: 40,
+    price: 50,
     image: "https://i.ibb.co/Mk98gTxP/Chat-GPT-Image-9-2026-05-03-24.png"
   },
   {
@@ -233,7 +233,7 @@ const MENU_ITEMS = [
     name_en: "Strawberry",
     desc_ar: "عصير فراولة فريش.",
     desc_en: "Fresh strawberry juice.",
-    price: 40,
+    price: 50,
     image: "https://i.ibb.co/JjPCrsJt/40c723b8966afe0e96579653d76e63a5.jpg"
   },
   {
@@ -244,7 +244,7 @@ const MENU_ITEMS = [
     name_en: "Banana Milk",
     desc_ar: "عصير موز بالحليب.",
     desc_en: "Fresh banana milk drink.",
-    price: 40,
+    price: 50,
     image: "https://i.ibb.co/k2pgyCXz/Chat-GPT-Image-9-2026-05-11-00.png"
   },
   {
@@ -255,7 +255,7 @@ const MENU_ITEMS = [
     name_en: "Watermelon",
     desc_ar: "عصير بطيخ فريش.",
     desc_en: "Fresh watermelon juice.",
-    price: 40,
+    price: 50,
     image: "https://i.ibb.co/n8zhkmbf/Chat-GPT-Image-9-2026-05-13-32.png"
   },
   {
@@ -266,7 +266,7 @@ const MENU_ITEMS = [
     name_en: "Lemon",
     desc_ar: "عصير ليمون فريش.",
     desc_en: "Fresh lemon juice.",
-    price: 30,
+    price: 40,
     image: "https://i.ibb.co/cWF70wk/Chat-GPT-Image-9-2026-05-17-05.png"
   },
   {
@@ -277,7 +277,7 @@ const MENU_ITEMS = [
     name_en: "Lemon Mint",
     desc_ar: "عصير ليمون بالنعناع.",
     desc_en: "Fresh lemon mint juice.",
-    price: 30,
+    price: 45,
     image: "https://i.ibb.co/xKvcKDSn/Chat-GPT-Image-9-2026-05-16-04.png"
   },
   {
@@ -288,19 +288,8 @@ const MENU_ITEMS = [
     name_en: "French Lemon",
     desc_ar: "عصير ليمون فرنسي مميز.",
     desc_en: "Special French lemon juice.",
-    price: 35,
+    price: 50,
     image: "https://i.ibb.co/qYd2bHTp/Chat-GPT-Image-9-2026-05-56-55.png"
-  },
-  {
-    id: "fresh-grape",
-    category: "fresh",
-    type: "drink",
-    name_ar: "عنب",
-    name_en: "Grape",
-    desc_ar: "عصير عنب فريش.",
-    desc_en: "Fresh grape juice.",
-    price: 30,
-    image: "https://i.ibb.co/CRJs9jq/Chat-GPT-Image-9-2026-05-07-36.png"
   },
   {
     id: "oreo-drink",
@@ -310,7 +299,7 @@ const MENU_ITEMS = [
     name_en: "Oreo (drink)",
     desc_ar: "مشروب أوريو بارد وكريمي.",
     desc_en: "Cold and creamy Oreo drink.",
-    price: 40,
+    price: 55,
     image: "https://i.ibb.co/cK4vtTbR/2ce9ffdbf8299bedea03f523ac301ecd.jpg"
   },
   {
@@ -321,7 +310,7 @@ const MENU_ITEMS = [
     name_en: "Berry Spread",
     desc_ar: "إضافة للوافل.",
     desc_en: "Waffle add-on spread.",
-    price: 10,
+    price: 15,
     image: "https://i.ibb.co/Y7dwFs8z/Chat-GPT-Image-9-2026-05-04-58.png"
   },
   {
@@ -332,7 +321,7 @@ const MENU_ITEMS = [
     name_en: "Strawberry Spread",
     desc_ar: "إضافة للوافل.",
     desc_en: "Waffle add-on spread.",
-    price: 10,
+    price: 15,
     image: "https://i.ibb.co/Ld7nnbqB/Chat-GPT-Image-9-2026-05-05-53.png"
   },
   {
