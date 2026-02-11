@@ -99,6 +99,101 @@ window.addEventListener("load",()=>{
   },4000); //  تختفي بعد 4 ثواني
 });
 </script>
+<div id="hijriMoon" class="hijri-moon" aria-label="الهلال الهجري"></div>
+<script>
+(function () {
+  const el = document.getElementById("hijriMoon");
+  if (!el) return;
+
+  const CONFIG = {
+    // لو خلفية الهيدر مختلفة عن --moon-cut عدّلها هنا كمان لنفس اللون
+    CUT_COLOR: getComputedStyle(el).getPropertyValue("--moon-cut").trim() || "#0b1020",
+    LIT: getComputedStyle(el).getPropertyValue("--moon-lit").trim() || "#fff6cf",
+    SHADE: getComputedStyle(el).getPropertyValue("--moon-shade").trim() || "rgba(255,228,140,0.10)",
+  };
+
+  function getHijriParts(date = new Date()) {
+    const fmt = new Intl.DateTimeFormat("ar-SA-u-ca-islamic", { day:"numeric", month:"numeric", year:"numeric" });
+    const parts = fmt.formatToParts(date);
+    const get = (t) => parts.find(p => p.type === t)?.value;
+    return {
+      day: parseInt(get("day"), 10),
+      month: parseInt(get("month"), 10),
+      year: parseInt(get("year"), 10),
+    };
+  }
+
+  function phaseFromHijriDay(hDay){
+    const d = Math.max(1, Math.min(30, hDay));
+    return (d - 1) / 29; // 0..1
+  }
+
+  function render(phase){
+    // phase: 0=new, 0.5=full
+    const waxing = phase <= 0.5;
+    const p = waxing ? (phase / 0.5) : ((1 - phase) / 0.5); // 0..1 up then down
+    // p=0 -> new (thin), p=1 -> full
+    // offset controls crescent thickness
+    const r = 46;
+    const cx = 50, cy = 50;
+
+    // كلما p يكبر، القصّة تقل (نقرب للبدر)
+    const cut = (1 - p) * (r * 1.15);        // 0..~52
+    const dir = waxing ? 1 : -1;             // light right (waxing) / left (waning)
+    const cutCx = cx + dir * cut;
+
+    const id = "m" + Math.random().toString(16).slice(2);
+
+    el.innerHTML = `
+<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Moon">
+  <defs>
+    <radialGradient id="${id}g" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="${CONFIG.LIT}"/>
+      <stop offset="70%" stop-color="${CONFIG.LIT}"/>
+      <stop offset="100%" stop-color="#f6d98a"/>
+    </radialGradient>
+
+    <!-- Mask: white keeps, black cuts -->
+    <mask id="${id}mask">
+      <rect width="100" height="100" fill="black"/>
+      <!-- base disc -->
+      <circle cx="${cx}" cy="${cy}" r="${r}" fill="white"/>
+      <!-- cut disc (black) -->
+      <circle cx="${cutCx}" cy="${cy}" r="${r}" fill="black"/>
+    </mask>
+
+    <filter id="${id}glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- subtle shade disc behind -->
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="${CONFIG.SHADE}"/>
+
+  <!-- lit part via mask -->
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${id}g)" mask="url(#${id}mask)" filter="url(#${id}glow)"/>
+
+  <!-- tiny highlight -->
+  <circle cx="${cx-12}" cy="${cy-18}" r="6" fill="rgba(255,255,255,.20)"/>
+</svg>`.trim();
+  }
+
+  function update(){
+    const { day, month, year } = getHijriParts(new Date());
+    const phase = phaseFromHijriDay(day);
+    render(phase);
+    el.title = `اليوم الهجري: ${day} / ${month} / ${year}`;
+    el.setAttribute("aria-label", el.title);
+  }
+
+  update();
+  setInterval(update, 60 * 60 * 1000);
+})();
+</script>
 
 
 
