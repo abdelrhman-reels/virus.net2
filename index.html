@@ -7,6 +7,73 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+
+<!-- Ramadan Lanterns (Sticky Top) -->
+<div class="lanterns-container" id="lanterns">
+  <div class="lantern-track">
+    <div class="lantern" style="--x: 5%; --drop: 46px; --swing: 5deg; --duration: 4.5s; --delay: -1.2s; --flicker: 2.05s;">
+      <span class="chain"></span><span class="body"></span><span class="core"></span><span class="light"></span>
+    </div>
+    <div class="lantern" style="--x: 17%; --drop: 56px; --swing: 7deg; --duration: 5.2s; --delay: -2.1s; --flicker: 2.3s;">
+      <span class="chain"></span><span class="body"></span><span class="core"></span><span class="light"></span>
+    </div>
+    <div class="lantern" style="--x: 30%; --drop: 50px; --swing: 6deg; --duration: 4.9s; --delay: -0.8s; --flicker: 2.15s;">
+      <span class="chain"></span><span class="body"></span><span class="core"></span><span class="light"></span>
+    </div>
+    <div class="lantern" style="--x: 45%; --drop: 60px; --swing: 8deg; --duration: 5.7s; --delay: -1.6s; --flicker: 2.45s;">
+      <span class="chain"></span><span class="body"></span><span class="core"></span><span class="light"></span>
+    </div>
+    <div class="lantern" style="--x: 60%; --drop: 49px; --swing: 5.5deg; --duration: 4.7s; --delay: -2.8s; --flicker: 2.1s;">
+      <span class="chain"></span><span class="body"></span><span class="core"></span><span class="light"></span>
+    </div>
+    <div class="lantern" style="--x: 74%; --drop: 58px; --swing: 7deg; --duration: 5.4s; --delay: -1.1s; --flicker: 2.35s;">
+      <span class="chain"></span><span class="body"></span><span class="core"></span><span class="light"></span>
+    </div>
+    <div class="lantern" style="--x: 89%; --drop: 52px; --swing: 6deg; --duration: 5s; --delay: -2.4s; --flicker: 2.2s;">
+      <span class="chain"></span><span class="body"></span><span class="core"></span><span class="light"></span>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function () {
+  const lanterns = document.getElementById("lanterns");
+  if (!lanterns) return;
+
+  const setBodyOffset = () => {
+    const height = Math.ceil(lanterns.getBoundingClientRect().height);
+    const offset = height + 12;
+    document.body.style.paddingTop = offset + "px";
+    document.documentElement.style.setProperty("--lantern-offset", offset + "px");
+  };
+
+  const safeUpdate = () => requestAnimationFrame(setBodyOffset);
+
+  window.addEventListener("load", safeUpdate);
+  window.addEventListener("resize", safeUpdate, { passive: true });
+  window.addEventListener("orientationchange", safeUpdate, { passive: true });
+
+  if ("ResizeObserver" in window) {
+    const ro = new ResizeObserver(safeUpdate);
+    ro.observe(lanterns);
+  }
+
+  safeUpdate();
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+  
   <div class="ambient-bg" aria-hidden="true">
     <span class="orb orb-1"></span>
     <span class="orb orb-2"></span>
