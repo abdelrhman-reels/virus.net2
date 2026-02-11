@@ -768,3 +768,162 @@ a {
     pointer-events: auto;
   }
 }
+
+
+
+
+
+
+
+
+
+/* Ramadan Lanterns (Sticky Top) */
+:root { --lantern-offset: 120px; }
+
+.lanterns-container{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: clamp(96px, 18vw, 145px);
+  z-index: 9999;
+  background: transparent;
+  pointer-events: none;
+}
+
+.lantern-track{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.lantern{
+  --swing: 6deg;
+  --drop: 52px;
+  --duration: 4.8s;
+  --delay: 0s;
+  --flicker: 2.1s;
+
+  position: absolute;
+  top: 0;
+  left: var(--x);
+  transform-origin: 50% 0;
+  animation: rl-swing var(--duration) ease-in-out infinite var(--delay);
+  will-change: transform;
+}
+
+/* chain */
+.chain{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: var(--drop);
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, #ccb98a 0%, #8b7449 100%);
+  box-shadow: 0 0 2px rgba(0,0,0,.2);
+}
+
+.chain::before{
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 10px;
+  height: 7px;
+  transform: translateX(-50%);
+  border: 2px solid #9e8556;
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+/* lantern body (renamed to avoid conflict) */
+.lantern .body{
+  position: absolute;
+  top: var(--drop);
+  left: 50%;
+  width: clamp(26px, 4.2vw, 42px);
+  height: clamp(46px, 7.5vw, 74px);
+  transform: translateX(-50%);
+  border-radius: 11px 11px 14px 14px;
+  background: linear-gradient(160deg, #ffd872 0%, #ffb43b 50%, #e47c17 100%);
+  box-shadow:
+    0 0 0 2px rgba(113,57,13,.35) inset,
+    0 8px 16px rgba(70,34,6,.35);
+  animation: rl-flicker var(--flicker) ease-in-out infinite;
+}
+
+.lantern .body::before{
+  content:"";
+  position:absolute;
+  top:-8px;
+  left:50%;
+  width:65%;
+  height:9px;
+  transform:translateX(-50%);
+  border-radius:4px;
+  background: linear-gradient(180deg, #8f744a 0%, #6d542f 100%);
+  box-shadow:0 1px 2px rgba(0,0,0,.25);
+}
+
+.lantern .body::after{
+  content:"";
+  position:absolute;
+  bottom:-7px;
+  left:50%;
+  width:44%;
+  height:7px;
+  transform:translateX(-50%);
+  border-radius:4px;
+  background: linear-gradient(180deg, #8f744a 0%, #6d542f 100%);
+}
+
+.core{
+  position: absolute;
+  top: calc(var(--drop) + 13px);
+  left: 50%;
+  width: clamp(11px, 2vw, 17px);
+  height: clamp(19px, 3.2vw, 28px);
+  transform: translateX(-50%);
+  border-radius: 8px;
+  background: radial-gradient(circle at 50% 35%, #fffde8 0%, #ffe79a 52%, rgba(255,204,106,.75) 100%);
+  opacity: .9;
+  filter: blur(.2px);
+  animation: rl-flicker calc(var(--flicker) * .9) ease-in-out infinite;
+}
+
+.light{
+  position: absolute;
+  top: calc(var(--drop) + 6px);
+  left: 50%;
+  width: clamp(80px, 13vw, 145px);
+  height: clamp(58px, 10vw, 108px);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,232,155,.5) 0%, rgba(255,208,92,.22) 45%, rgba(255,180,65,.08) 70%, transparent 100%);
+  filter: blur(2px);
+  animation: rl-glow calc(var(--flicker) * 1.25) ease-in-out infinite;
+}
+
+@keyframes rl-swing{
+  0%,100%{ transform: rotate(calc(var(--swing) * -1)); }
+  50%{ transform: rotate(var(--swing)); }
+}
+@keyframes rl-flicker{
+  0%,100%{ filter: brightness(1) saturate(1); }
+  18%{ filter: brightness(1.1) saturate(1.08); }
+  35%{ filter: brightness(.92) saturate(.96); }
+  58%{ filter: brightness(1.2) saturate(1.12); }
+  80%{ filter: brightness(.97) saturate(1); }
+}
+@keyframes rl-glow{
+  0%,100%{ opacity:.55; transform: translateX(-50%) scale(1); }
+  50%{ opacity:.9; transform: translateX(-50%) scale(1.08); }
+}
+
+@media (max-width: 700px){
+  .lanterns-container{ height: clamp(88px, 23vw, 128px); }
+  .light{
+    width: clamp(68px, 18vw, 110px);
+    height: clamp(50px, 14vw, 86px);
+  }
+}
