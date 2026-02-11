@@ -35,8 +35,6 @@
     </div>
   </div>
 </div>
-
-
 <script>
 (function () {
   const lanterns = document.getElementById("lanterns");
@@ -62,6 +60,44 @@
 
   safeUpdate();
 })();
+</script>
+<!-- Ramadan Welcome Popup -->
+<div id="ramadanPopup" class="ramadan-popup">
+  رمضان أحلى مع فيرس ✨
+</div>
+
+<style>
+.ramadan-popup{
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg,#ffcc66,#ff9933);
+  color:#222;
+  padding:12px 28px;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  z-index:10000;
+  opacity:0;
+  transition:.6s;
+}
+.ramadan-popup.show{
+  opacity:1;
+  top:40px;
+}
+</style>
+
+<script>
+window.addEventListener("load",()=>{
+  const popup=document.getElementById("ramadanPopup");
+  popup.classList.add("show");
+
+  setTimeout(()=>{
+    popup.classList.remove("show");
+  },4000); // تختفي بعد 4 ثواني
+});
 </script>
 
 
