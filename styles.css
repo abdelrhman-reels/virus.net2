@@ -786,6 +786,22 @@ a {
 
 
 
+.hijri-moon{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 64px;
+  height: 64px;
+  z-index: 10000;
+  pointer-events: none;
+  --moon-lit: #fff6cf;
+  --moon-shade: rgba(255, 228, 140, 0.10);
+  --moon-cut: #0b1020; /* غيّرها للون خلفية الهيدر لو مختلف */
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+}
+@media (max-width:700px){
+  .hijri-moon{ width: 52px; height: 52px; top: 14px; right: 12px; }
+}
 
 /* Ramadan Lanterns (Sticky Top) */
 :root { --lantern-offset: 120px; }
